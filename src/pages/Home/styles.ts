@@ -65,3 +65,41 @@ export const TitleContainer = styled.div`
     color: ${(props) => props.theme.colors['gray-800']};
   }
 `
+
+export const ItemsContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  grid-gap: 2.5rem 1.25rem;
+
+  div:nth-of-type(1) div {
+    background: ${(props) => props.theme.colors['yellow-700']};
+  }
+
+  div:nth-of-type(2) div {
+    background: ${(props) => props.theme.colors['gray-700']};
+  }
+
+  div:nth-of-type(3) div {
+    background: ${(props) => props.theme.colors['yellow-500']};
+  }
+
+  div:nth-of-type(4) div {
+    background: ${(props) => props.theme.colors['purple-500']};
+  }
+`
+
+export const Item = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+`
+
+export const ItemIcon = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  color: ${(props) => props.theme.colors.white};
+`

@@ -4,8 +4,12 @@ import {
   HomeContainer,
   HeroContent,
   TitleContainer,
+  ItemsContainer,
+  ItemIcon,
+  Item,
 } from './styles'
 import HeroImage from '../../assets/hero.png'
+import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
 
 export function Home() {
   return (
@@ -23,7 +27,39 @@ export function Home() {
               </p>
             </TitleContainer>
 
-            <div></div>
+            <ItemsContainer>
+              <Item>
+                <ItemIcon>
+                  <ShoppingCart size={16} weight="fill" />
+                </ItemIcon>
+
+                <span>Compra simples e segura</span>
+              </Item>
+
+              <Item>
+                <ItemIcon>
+                  <Package size={16} weight="fill" />
+                </ItemIcon>
+
+                <span>Embalagem mantém o café intacto</span>
+              </Item>
+
+              <Item>
+                <ItemIcon>
+                  <Timer size={16} weight="fill" />
+                </ItemIcon>
+
+                <span>Entrega rápida e rastreada</span>
+              </Item>
+
+              <Item>
+                <ItemIcon>
+                  <Coffee size={16} weight="fill" />
+                </ItemIcon>
+
+                <span>O café chega fresquinho até você</span>
+              </Item>
+            </ItemsContainer>
           </HeroContent>
 
           <img
