@@ -16,6 +16,8 @@ import {
   Filters,
 } from './styles'
 import HeroImage from '../../assets/hero.png'
+import ExpressoImage from '../../assets/expresso.png'
+import { CoffeeCard } from '../../components/CoffeeCard'
 
 export function Home() {
   return (
@@ -88,7 +90,22 @@ export function Home() {
           </Filters>
         </CoffeeSectionHeader>
 
-        <CoffeesList></CoffeesList>
+        <CoffeesList>
+          <CoffeeCard
+            img={ExpressoImage}
+            tags={['tradicional']}
+            title="Expresso Tradicional"
+            description="O tradicional café feito com água quente e grãos moídos"
+            price={9.9}
+          />
+          <CoffeeCard
+            img={ExpressoImage}
+            tags={['tradicional']}
+            title="Expresso Tradicional"
+            description="O tradicional café feito com água quente e grãos moídos"
+            price={9.9}
+          />
+        </CoffeesList>
       </CoffeeSection>
     </HomeContainer>
   )
