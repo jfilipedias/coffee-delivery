@@ -26,7 +26,6 @@ export const Location = styled.div`
   background: ${(props) => props.theme.colors['purple-200']};
   color: ${(props) => props.theme.colors['purple-700']};
   font-size: 0.875rem;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `
 
 export const Cart = styled.button`
@@ -38,7 +37,6 @@ export const Cart = styled.button`
   border-radius: 6px;
   background: ${(props) => props.theme.colors['yellow-200']};
   color: ${(props) => props.theme.colors['yellow-700']};
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   :hover {
     cursor: pointer;
