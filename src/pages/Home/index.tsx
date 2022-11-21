@@ -1,3 +1,5 @@
+import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
+
 import {
   BackgroundContainer,
   HeroSection,
@@ -7,9 +9,13 @@ import {
   ItemsContainer,
   ItemIcon,
   Item,
+  CoffeeSection,
+  CoffeeSectionHeader,
+  Tag,
+  CoffeesList,
+  Filters,
 } from './styles'
 import HeroImage from '../../assets/hero.png'
-import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
 
 export function Home() {
   return (
@@ -68,6 +74,22 @@ export function Home() {
           />
         </main>
       </HeroSection>
+
+      <CoffeeSection>
+        <CoffeeSectionHeader>
+          <h2>Nossos Café</h2>
+
+          <Filters>
+            <Tag>Tradicional</Tag>
+            <Tag>Especial</Tag>
+            <Tag>Com Leite</Tag>
+            <Tag>Alcoólico</Tag>
+            <Tag>Gelado</Tag>
+          </Filters>
+        </CoffeeSectionHeader>
+
+        <CoffeesList></CoffeesList>
+      </CoffeeSection>
     </HomeContainer>
   )
 }

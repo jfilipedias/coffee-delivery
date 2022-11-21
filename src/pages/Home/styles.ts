@@ -100,6 +100,50 @@ export const ItemIcon = styled.div`
   justify-content: center;
   width: 2rem;
   height: 2rem;
-  border-radius: 50%;
+  border-radius: 100px;
   color: ${(props) => props.theme.colors.white};
 `
+
+export const CoffeeSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.875rem;
+  width: 100%;
+  max-width: 90rem;
+  margin: auto;
+  padding: 2rem 10rem;
+`
+
+export const CoffeeSectionHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+  h2 {
+    font-family: 'Baloo 2';
+    font-size: 2rem;
+    font-family: 800;
+    color: ${(props) => props.theme.colors['gray-800']};
+  }
+`
+export const Filters = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`
+
+export const Tag = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 0.375rem 0.75rem;
+  border: 1px solid ${(props) => props.theme.colors['yellow-500']};
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  color: ${(props) => props.theme.colors['yellow-700']};
+`
+
+export const CoffeesList = styled.div``
