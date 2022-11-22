@@ -38,7 +38,7 @@ export const Cart = styled.button`
   background: ${(props) => props.theme.colors['yellow-200']};
   color: ${(props) => props.theme.colors['yellow-700']};
 
-  :hover {
+  &:hover {
     cursor: pointer;
   }
 `

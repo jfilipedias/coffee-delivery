@@ -1,4 +1,6 @@
 import { ShoppingCart } from 'phosphor-react'
+import { useState } from 'react'
+import { Counter } from '../Counter'
 import { CardContainer, PriceContainer, TagContainer, TagsList } from './styles'
 
 interface CoffeeCardProps {
@@ -16,6 +18,12 @@ export function CoffeeCard({
   description,
   price,
 }: CoffeeCardProps) {
+  const [count, setCount] = useState(0)
+
+  function handleCountChange(value: number) {
+    setCount(value)
+  }
+
   return (
     <CardContainer>
       <img src={img} alt="" />
@@ -36,7 +44,7 @@ export function CoffeeCard({
           <strong>{price}</strong>
         </PriceContainer>
 
-        <input type="number" />
+        <Counter count={count} onCountChange={handleCountChange} />
 
         <button type="submit">
           <ShoppingCart />
