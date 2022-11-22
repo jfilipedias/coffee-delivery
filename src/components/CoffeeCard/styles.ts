@@ -28,6 +28,13 @@ export const CardContainer = styled.div`
     text-align: center;
     color: ${(props) => props.theme.colors['gray-600']};
   }
+
+  form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
 `
 
 export const TagsList = styled.div`
@@ -50,3 +57,9 @@ export const TagContainer = styled.span`
 `
 
 export const PriceContainer = styled.div``
+
+export const ActionsContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`
