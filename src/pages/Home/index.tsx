@@ -98,6 +98,7 @@ export function Home() {
             description="O tradicional café feito com água quente e grãos moídos"
             price={9.9}
           />
+
           <CoffeeCard
             img={ExpressoImage}
             tags={['tradicional']}
