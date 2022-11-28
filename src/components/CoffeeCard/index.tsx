@@ -26,6 +26,19 @@ export function CoffeeCard({
 }: CoffeeCardProps) {
   const [count, setCount] = useState(0)
 
+  const formattedPriceToBRL = new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+  }).formatToParts(price)
+
+  const priceCurrency = formattedPriceToBRL
+    .filter((part) => part.type === 'currency')
+    .map((parts) => parts.value)
+
+  const priceValue = formattedPriceToBRL
+    .filter((part) => part.type !== 'currency')
+    .map((parts) => parts.value)
+
   function handleCountChange(value: number) {
     setCount(value)
   }
@@ -46,15 +59,15 @@ export function CoffeeCard({
 
       <form>
         <PriceContainer>
-          <span>R$</span>
-          <strong>{price}</strong>
+          <span>{priceCurrency}</span>
+          <strong>{priceValue}</strong>
         </PriceContainer>
 
         <ActionsContainer>
           <Counter count={count} onCountChange={handleCountChange} />
 
           <button type="submit">
-            <ShoppingCart />
+            <ShoppingCart size={22} weight="fill" />
           </button>
         </ActionsContainer>
       </form>

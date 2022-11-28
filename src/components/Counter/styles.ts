@@ -4,6 +4,7 @@ export const CounterContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 0.25rem;
+  height: 2.375rem;
   padding: 0.5rem;
   border-radius: 6px;
   background: ${(props) => props.theme.colors['gray-400']};
@@ -16,6 +17,8 @@ export const CounterContainer = styled.div`
 
   button {
     color: ${(props) => props.theme.colors['purple-500']};
+    transition: background-color 0.2s ease;
+    cursor: pointer;
 
     &:hover {
       color: ${(props) => props.theme.colors['purple-700']};

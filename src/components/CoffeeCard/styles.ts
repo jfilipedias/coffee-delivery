@@ -34,6 +34,7 @@ export const CardContainer = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    margin-top: 2rem;
   }
 `
 
@@ -56,10 +57,35 @@ export const TagContainer = styled.span`
   color: ${(props) => props.theme.colors['yellow-700']};
 `
 
-export const PriceContainer = styled.div``
+export const PriceContainer = styled.div`
+  span {
+    font-size: 0.875rem;
+  }
+
+  strong {
+    font-family: 'Baloo 2';
+    font-size: 1.5rem;
+  }
+`
 
 export const ActionsContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
+
+  button[type='submit'] {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 6px;
+    background: ${(props) => props.theme.colors['purple-700']};
+    color: ${(props) => props.theme.colors.white};
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+
+    &:hover {
+      background: ${(props) => props.theme.colors['purple-500']};
+    }
+  }
 `
