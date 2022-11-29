@@ -10,7 +10,7 @@ import {
 } from './styles'
 
 interface CoffeeCardProps {
-  img: string
+  image: string
   tags: string[]
   title: string
   description: string
@@ -18,7 +18,7 @@ interface CoffeeCardProps {
 }
 
 export function CoffeeCard({
-  img,
+  image,
   tags,
   title,
   description,
@@ -26,16 +26,16 @@ export function CoffeeCard({
 }: CoffeeCardProps) {
   const [count, setCount] = useState(0)
 
-  const formattedPriceToBRL = new Intl.NumberFormat('pt-BR', {
+  const formattedPriceParts = new Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL',
   }).formatToParts(price)
 
-  const priceCurrency = formattedPriceToBRL
+  const formattedCurrency = formattedPriceParts
     .filter((part) => part.type === 'currency')
     .map((parts) => parts.value)
 
-  const priceValue = formattedPriceToBRL
+  const formattedPrice = formattedPriceParts
     .filter((part) => part.type !== 'currency')
     .map((parts) => parts.value)
 
@@ -45,7 +45,7 @@ export function CoffeeCard({
 
   return (
     <CardContainer>
-      <img src={img} alt="" />
+      <img src={image} alt="" />
 
       <TagsList>
         {tags.map((tag) => (
@@ -59,8 +59,8 @@ export function CoffeeCard({
 
       <form>
         <PriceContainer>
-          <span>{priceCurrency}</span>
-          <strong>{priceValue}</strong>
+          <span>{formattedCurrency}</span>
+          <strong>{formattedPrice}</strong>
         </PriceContainer>
 
         <ActionsContainer>

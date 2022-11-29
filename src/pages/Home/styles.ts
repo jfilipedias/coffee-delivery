@@ -112,7 +112,7 @@ export const CoffeeSection = styled.div`
   width: 100%;
   max-width: 90rem;
   margin: auto;
-  padding: 2rem 10rem;
+  padding: 2rem 10rem 10rem;
 `
 
 export const CoffeeSectionHeader = styled.div`
@@ -128,22 +128,14 @@ export const CoffeeSectionHeader = styled.div`
     color: ${(props) => props.theme.colors['gray-800']};
   }
 `
-export const Filters = styled.div`
+export const FiltersContainer = styled.ul`
   display: flex;
   align-items: center;
   gap: 0.5rem;
-`
 
-export const Tag = styled.div`
-  display: flex;
-  align-items: center;
-  padding: 0.375rem 0.75rem;
-  border: 1px solid ${(props) => props.theme.colors['yellow-500']};
-  border-radius: 100px;
-  font-weight: 700;
-  font-size: 0.625rem;
-  text-transform: uppercase;
-  color: ${(props) => props.theme.colors['yellow-700']};
+  li {
+    list-style: none;
+  }
 `
 
 export const CoffeesList = styled.div`
