@@ -9,7 +9,9 @@ interface CounterProps {
 
 export function Counter({ count, onCountChange }: CounterProps) {
   function handleDecrement() {
-    onCountChange(count - 1)
+    if (count > 0) {
+      onCountChange(count - 1)
+    }
   }
 
   function handleIncrement() {

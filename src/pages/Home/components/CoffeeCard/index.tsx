@@ -1,6 +1,6 @@
 import { ShoppingCart } from 'phosphor-react'
 import { useState } from 'react'
-import { Counter } from '../Counter'
+import { Counter } from '../../../../components/Counter'
 import {
   ActionsContainer,
   CardContainer,

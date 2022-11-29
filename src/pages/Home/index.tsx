@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
 
 import {
@@ -10,43 +9,11 @@ import {
   ItemsContainer,
   ItemIcon,
   Item,
-  CoffeeSection,
-  CoffeeSectionHeader,
-  CoffeesList,
-  FiltersContainer,
 } from './styles'
+import { CoffeeSection } from './components/CoffeeSection'
 import HeroImage from '../../assets/hero.png'
-import { CoffeeCard } from '../../components/CoffeeCard'
-import coffeesList from '../../data/coffees.json'
-import filtersList from '../../data/filters.json'
-import { Filter } from '../../components/Filter'
 
 export function Home() {
-  const [selectedFilters, setSelectedFilters] = useState<string[]>([])
-
-  const coffeesToList =
-    selectedFilters.length === 0 ? coffeesList : filterCoffees()
-
-  function handleAddFilter(filterToAdd: string) {
-    setSelectedFilters((state) => [...state, filterToAdd])
-  }
-
-  function handleRemoveFilter(filterToRemove: string) {
-    const selectedFiltersWithoutRemovedOne = selectedFilters.filter(
-      (filter) => filter !== filterToRemove,
-    )
-
-    setSelectedFilters([...selectedFiltersWithoutRemovedOne])
-  }
-
-  function filterCoffees() {
-    return coffeesList.filter((coffee) =>
-      selectedFilters.every((selectedFilter) =>
-        coffee.tags.includes(selectedFilter),
-      ),
-    )
-  }
-
   return (
     <HomeContainer>
       <HeroSection>
@@ -104,29 +71,7 @@ export function Home() {
         </main>
       </HeroSection>
 
-      <CoffeeSection>
-        <CoffeeSectionHeader>
-          <h2>Nossos Café</h2>
-
-          <FiltersContainer>
-            {filtersList.map((filter) => (
-              <li key={filter}>
-                <Filter
-                  name={filter}
-                  onAddFilter={handleAddFilter}
-                  onRemoveFilter={handleRemoveFilter}
-                />
-              </li>
-            ))}
-          </FiltersContainer>
-        </CoffeeSectionHeader>
-
-        <CoffeesList>
-          {coffeesToList.map((coffee) => (
-            <CoffeeCard key={coffee.title} {...coffee} />
-          ))}
-        </CoffeesList>
-      </CoffeeSection>
+      <CoffeeSection />
     </HomeContainer>
   )
 }
