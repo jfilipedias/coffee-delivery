@@ -19,8 +19,9 @@ export function Counter({ count, onCountChange }: CounterProps) {
   }
 
   function handleCountInputChange(event: ChangeEvent<HTMLInputElement>) {
-    const eventValue = event.target.value
-    const newCountValue = eventValue ? parseInt(eventValue, 10) : 0
+    const newCountValue = event.target.value
+      ? parseInt(event.target.value, 10)
+      : 0
 
     if (newCountValue >= 0) {
       onCountChange(newCountValue)
@@ -36,7 +37,7 @@ export function Counter({ count, onCountChange }: CounterProps) {
       <input
         type="number"
         placeholder="0"
-        value={count}
+        value={count.toString()}
         onChange={handleCountInputChange}
       />
 
