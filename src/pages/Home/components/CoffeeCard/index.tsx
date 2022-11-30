@@ -1,5 +1,6 @@
+import { FormEvent, useState } from 'react'
 import { ShoppingCart } from 'phosphor-react'
-import { useState } from 'react'
+
 import { Counter } from '../../../../components/Counter'
 import {
   ActionsContainer,
@@ -10,6 +11,7 @@ import {
 } from './styles'
 
 interface CoffeeCardProps {
+  id: string
   image: string
   tags: string[]
   title: string
@@ -18,6 +20,7 @@ interface CoffeeCardProps {
 }
 
 export function CoffeeCard({
+  id,
   image,
   tags,
   title,
@@ -43,6 +46,12 @@ export function CoffeeCard({
     setCount(value)
   }
 
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    console.log(`Add ${count} ${title}`)
+    setCount(0)
+  }
+
   return (
     <CardContainer>
       <img src={image} alt="" />
@@ -57,7 +66,7 @@ export function CoffeeCard({
 
       <p>{description}</p>
 
-      <form>
+      <form onSubmit={handleSubmit}>
         <PriceContainer>
           <span>{formattedCurrency}</span>
           <strong>{formattedPrice}</strong>
