@@ -57,7 +57,7 @@ export function CoffeeSection() {
 
       <CoffeesList>
         {coffeesToList.map((coffee) => (
-          <CoffeeCard key={coffee.title} {...coffee} />
+          <CoffeeCard key={coffee.id} {...coffee} />
         ))}
       </CoffeesList>
     </CoffeeSectionContainer>
