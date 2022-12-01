@@ -27,18 +27,3 @@ export const Location = styled.div`
   color: ${(props) => props.theme.colors['purple-700']};
   font-size: 0.875rem;
 `
-
-export const Cart = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem;
-  border: 0;
-  border-radius: 6px;
-  background: ${(props) => props.theme.colors['yellow-200']};
-  color: ${(props) => props.theme.colors['yellow-700']};
-
-  &:hover {
-    cursor: pointer;
-  }
-`

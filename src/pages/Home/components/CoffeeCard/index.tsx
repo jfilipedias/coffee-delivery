@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react'
+import { FormEvent, useContext, useState } from 'react'
 import { ShoppingCart } from 'phosphor-react'
 
 import { Counter } from '../../../../components/Counter'
@@ -9,6 +9,7 @@ import {
   TagContainer,
   TagsList,
 } from './styles'
+import { CartContext } from '../../../../contexts/CartContext'
 
 interface CoffeeCardProps {
   id: string
@@ -27,7 +28,9 @@ export function CoffeeCard({
   description,
   price,
 }: CoffeeCardProps) {
-  const [count, setCount] = useState(0)
+  const [itemAmount, setItemCount] = useState(0)
+
+  const { addItemToCart } = useContext(CartContext)
 
   const formattedPriceParts = new Intl.NumberFormat('pt-BR', {
     style: 'currency',
@@ -43,13 +46,13 @@ export function CoffeeCard({
     .map((parts) => parts.value)
 
   function handleCountChange(value: number) {
-    setCount(value)
+    setItemCount(value)
   }
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    console.log(`Add ${count} ${title}`)
-    setCount(0)
+    addItemToCart(id, itemAmount)
+    setItemCount(0)
   }
 
   return (
@@ -73,7 +76,7 @@ export function CoffeeCard({
         </PriceContainer>
 
         <ActionsContainer>
-          <Counter count={count} onCountChange={handleCountChange} />
+          <Counter count={itemAmount} onCountChange={handleCountChange} />
 
           <button type="submit">
             <ShoppingCart size={22} weight="fill" />
