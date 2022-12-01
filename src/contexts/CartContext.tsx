@@ -34,7 +34,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     const itemAlreadyExists = cartItems.find((item) => item.id === id)
 
     if (itemAlreadyExists) {
-      const newCartItems = cartItems.map((item) => {
+      const updatedCartItems = cartItems.map((item) => {
         if (item.id === id) {
           const incrementedItemAmount = item.amount + amount
           return { ...item, amount: incrementedItemAmount }
@@ -43,7 +43,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         return item
       })
 
-      setCartItems(newCartItems)
+      setCartItems(updatedCartItems)
     } else {
       const itemToAdd = { id, amount }
       setCartItems((state) => [...state, itemToAdd])
