@@ -52,7 +52,7 @@ export const TitleContainer = styled.div`
   gap: 1rem;
 
   h1 {
-    font-family: 'Baloo 2';
+    font-family: 'Baloo 2', sans-serif;
     font-weight: 800;
     font-size: 3rem;
     line-height: 3.875rem;
