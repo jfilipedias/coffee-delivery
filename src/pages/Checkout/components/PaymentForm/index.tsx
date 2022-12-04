@@ -1,5 +1,10 @@
 import { PaymentFormContainer } from './styles'
+import { RadioButton } from '../RadioButton'
 
 export function PaymentForm() {
-  return <PaymentFormContainer>Payment Form</PaymentFormContainer>
+  return (
+    <PaymentFormContainer>
+      <RadioButton />
+    </PaymentFormContainer>
+  )
 }
