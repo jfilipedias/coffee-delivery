@@ -1,5 +1,5 @@
-import { Input } from '../Input'
 import { AddressFormContainer } from './styles'
+import { Input } from '../Input'
 
 export function AddressForm() {
   return (
