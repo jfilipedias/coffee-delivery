@@ -6,10 +6,11 @@ import { CartContext } from '../../contexts/CartContext'
 
 export function CartLink() {
   const { itemsAmount } = useContext(CartContext)
+  const hasItemOnCart = itemsAmount > 0
 
   return (
     <Cart>
-      {itemsAmount > 0 && <span>{itemsAmount}</span>}
+      {hasItemOnCart && <span>{itemsAmount}</span>}
 
       <ShoppingCart size={22} weight="fill" />
     </Cart>

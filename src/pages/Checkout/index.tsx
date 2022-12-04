@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form'
 import { CurrencyDollar, MapPinLine } from 'phosphor-react'
+import { useTheme } from 'styled-components'
 
 import {
   ConfirmStepSection,
@@ -8,8 +9,10 @@ import {
   SectionHeader,
   StepSection,
 } from './styles'
+import { AddressForm } from './components/AddressForm'
 
 export function Checkout() {
+  const { colors } = useTheme()
   const { handleSubmit } = useForm()
 
   function handleCreateNewOrder() {}
@@ -21,18 +24,20 @@ export function Checkout() {
 
         <StepSection>
           <SectionHeader>
-            <MapPinLine size={22} />
+            <MapPinLine size={22} color={colors['yellow-500']} />
 
             <div>
               <h3>Endereço de Entrega</h3>
               <span>Informe o endereço onde deseja receber seu pedido</span>
             </div>
           </SectionHeader>
+
+          <AddressForm />
         </StepSection>
 
         <StepSection>
           <SectionHeader>
-            <CurrencyDollar size={22} />
+            <CurrencyDollar size={22} color={colors['purple-500']} />
 
             <div>
               <h3>Pagamento</h3>

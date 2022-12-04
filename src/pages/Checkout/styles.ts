@@ -30,7 +30,7 @@ export const StepSection = styled.section`
   margin-top: 1rem;
   padding: 2.5rem;
   border-radius: 6px;
-  background: ${(props) => props.theme.colors['gray-300']};
+  background: ${(props) => props.theme.colors['gray-200']};
 
   & + section {
     margin-top: 0.75rem;
@@ -50,6 +50,12 @@ export const ConfirmStepSection = styled(StepSection)`
     font-weight: 700;
     font-size: 0.75rem;
     text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+
+    &:hover {
+      background: ${(props) => props.theme.colors['yellow-700']};
+    }
   }
 `
 
