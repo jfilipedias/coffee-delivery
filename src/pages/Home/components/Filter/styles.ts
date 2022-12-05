@@ -20,5 +20,5 @@ export const FilterContainer = styled.button<FilterContainerProps>`
   font-size: 0.625rem;
   text-transform: uppercase;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: 0.1s;
 `

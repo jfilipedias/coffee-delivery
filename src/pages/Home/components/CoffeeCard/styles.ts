@@ -81,7 +81,7 @@ export const ActionsContainer = styled.div`
     border-radius: 6px;
     background: ${(props) => props.theme.colors['purple-700']};
     color: ${(props) => props.theme.colors.white};
-    transition: background-color 0.2s ease;
+    transition: 0.1s;
     cursor: pointer;
 
     &:hover {

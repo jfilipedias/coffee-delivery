@@ -7,11 +7,14 @@ type RadioButtonProps = InputHTMLAttributes<HTMLInputElement> & {
   label: string
 }
 
-export function RadioButton({ id, icon, label }: RadioButtonProps) {
+export function PaymentMethodButton({ id, icon, label }: RadioButtonProps) {
   return (
     <RadioButtonContainer>
-      <input id={id} type="radio" />
-      <label htmlFor={id}>{label}</label>
+      <input id={id} type="radio" name="paymentMethod" />
+      <label htmlFor={id}>
+        {icon}
+        {label}
+      </label>
     </RadioButtonContainer>
   )
 }

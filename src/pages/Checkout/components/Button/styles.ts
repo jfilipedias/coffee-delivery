@@ -11,7 +11,7 @@ export const ButtonContainer = styled.button`
   font-size: 0.75rem;
   text-transform: uppercase;
   cursor: pointer;
-  transition: background-color 0.1s ease;
+  transition: 0.1s;
 
   &:hover {
     background: ${(props) => props.theme.colors['yellow-700']};

@@ -17,7 +17,7 @@ export const CounterContainer = styled.div`
 
   button {
     color: ${(props) => props.theme.colors['purple-500']};
-    transition: background-color 0.2s ease;
+    transition: 0.1s;
     cursor: pointer;
 
     &:hover {
