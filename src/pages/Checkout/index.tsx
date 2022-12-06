@@ -4,11 +4,11 @@ import { useTheme } from 'styled-components'
 
 import { FormContainer } from './styles'
 import { AddressForm } from './components/AddressForm'
-import { Button } from './components/Button'
+import { ConfirmCartForm } from './components/ConfirmCartForm'
 import { FormStep } from './components/FormStep'
 import { PaymentForm } from './components/PaymentForm'
-import { StepSectionHeader } from './components/StepSectionHeader'
 import { StepSection } from './components/StepSection'
+import { StepSectionHeader } from './components/StepSectionHeader'
 
 export function Checkout() {
   const { colors } = useTheme()
@@ -42,7 +42,7 @@ export function Checkout() {
 
       <FormStep title="Cafés selecionados" style={{ width: '28rem' }}>
         <StepSection style={{ borderRadius: '6px 44px' }}>
-          <Button type="submit">Confirmar pedido</Button>
+          <ConfirmCartForm />
         </StepSection>
       </FormStep>
     </FormContainer>

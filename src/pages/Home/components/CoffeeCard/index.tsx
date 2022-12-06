@@ -28,7 +28,7 @@ export function CoffeeCard({
   description,
   price,
 }: CoffeeCardProps) {
-  const [itemAmount, setItemCount] = useState(0)
+  const [amount, setAmount] = useState(0)
 
   const { addItemToCart } = useContext(CartContext)
 
@@ -46,13 +46,13 @@ export function CoffeeCard({
     .map((parts) => parts.value)
 
   function handleCountChange(value: number) {
-    setItemCount(value)
+    setAmount(value)
   }
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    addItemToCart(id, itemAmount)
-    setItemCount(0)
+    addItemToCart({ id, image, title, amount, price })
+    setAmount(0)
   }
 
   return (
@@ -76,7 +76,7 @@ export function CoffeeCard({
         </PriceContainer>
 
         <ActionsContainer>
-          <Counter count={itemAmount} onCountChange={handleCountChange} />
+          <Counter count={amount} onCountChange={handleCountChange} />
 
           <button type="submit">
             <ShoppingCart size={22} weight="fill" />
