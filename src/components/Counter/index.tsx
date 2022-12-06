@@ -9,8 +9,10 @@ interface CounterProps {
 }
 
 export function Counter({ count, onCountChange, minAmount = 0 }: CounterProps) {
+  const isDecreaseButtonDisabled = count <= minAmount
+
   function handleDecrement() {
-    if (count > 0) {
+    if (count > minAmount) {
       onCountChange(count - 1)
     }
   }
@@ -31,7 +33,11 @@ export function Counter({ count, onCountChange, minAmount = 0 }: CounterProps) {
 
   return (
     <CounterContainer>
-      <button type="button" onClick={handleDecrement}>
+      <button
+        type="button"
+        onClick={handleDecrement}
+        disabled={isDecreaseButtonDisabled}
+      >
         <Minus size={14} />
       </button>
 
