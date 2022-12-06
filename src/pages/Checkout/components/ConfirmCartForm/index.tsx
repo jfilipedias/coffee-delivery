@@ -1,4 +1,4 @@
-import { Fragment, useContext } from 'react'
+import { Fragment } from 'react'
 
 import {
   ConfirmButton,
@@ -8,11 +8,11 @@ import {
   TotalsContainer,
 } from './styles'
 import { CartItem } from '../CartItem'
-import { CartContext } from '../../../../contexts/CartContext'
 import coffeesList from '../../../../data/coffees.json'
+import { useCart } from '../../../../hooks/useCart'
 
 export function ConfirmCartForm() {
-  const { cartItems } = useContext(CartContext)
+  const { cartItems } = useCart()
 
   const priceFormatter = new Intl.NumberFormat('pt-BR', {
     style: 'currency',

@@ -1,11 +1,10 @@
-import { useContext } from 'react'
 import { ShoppingCart } from 'phosphor-react'
 
 import { Cart } from './styles'
-import { CartContext } from '../../contexts/CartContext'
+import { useCart } from '../../hooks/useCart'
 
 export function CartLink() {
-  const { itemsAmount } = useContext(CartContext)
+  const { itemsAmount } = useCart()
   const hasItemOnCart = itemsAmount > 0
 
   return (

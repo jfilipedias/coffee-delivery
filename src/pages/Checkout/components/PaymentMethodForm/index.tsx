@@ -2,7 +2,7 @@ import { PaymentFormContainer } from './styles'
 import { PaymentMethodButton } from '../PaymentMethodButton'
 import { Bank, CreditCard, Money } from 'phosphor-react'
 
-export function PaymentForm() {
+export function PaymentMethodForm() {
   return (
     <PaymentFormContainer>
       <PaymentMethodButton

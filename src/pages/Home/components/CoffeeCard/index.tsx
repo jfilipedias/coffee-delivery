@@ -1,7 +1,6 @@
-import { FormEvent, useContext, useState } from 'react'
+import { FormEvent, useState } from 'react'
 import { ShoppingCart } from 'phosphor-react'
 
-import { Counter } from '../../../../components/Counter'
 import {
   ActionsContainer,
   CardContainer,
@@ -9,7 +8,8 @@ import {
   TagContainer,
   TagsList,
 } from './styles'
-import { CartContext } from '../../../../contexts/CartContext'
+import { Counter } from '../../../../components/Counter'
+import { useCart } from '../../../../hooks/useCart'
 
 interface CoffeeCardProps {
   id: string
@@ -30,7 +30,7 @@ export function CoffeeCard({
 }: CoffeeCardProps) {
   const [amount, setAmount] = useState(0)
 
-  const { addItemToCart } = useContext(CartContext)
+  const { addItemToCart } = useCart()
 
   const formattedPriceParts = new Intl.NumberFormat('pt-BR', {
     style: 'currency',

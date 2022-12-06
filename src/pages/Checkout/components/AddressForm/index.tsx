@@ -1,25 +1,36 @@
+import { useFormContext } from 'react-hook-form'
+
 import { AddressFormContainer } from './styles'
 import { Input } from '../Input'
+import { ConfirmOrderFormData } from '../..'
 
 export function AddressForm() {
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext<ConfirmOrderFormData>()
+
   return (
     <AddressFormContainer>
       <Input
         id="postalCode"
         className="grid-col-span-3 postal-code"
-        type="number"
+        type="text"
         placeholder="CEP"
         label="CEP"
+        error={errors.postalCode?.message}
         required
+        {...register('postalCode')}
       />
 
       <Input
-        id="address"
+        id="street"
         className="grid-col-span-3"
         type="text"
         placeholder="Rua"
-        label="Rua"
+        error={errors.street?.message}
         required
+        {...register('street')}
       />
 
       <Input
@@ -27,7 +38,9 @@ export function AddressForm() {
         type="number"
         placeholder="Número"
         label="Número"
+        error={errors.number?.message}
         required
+        {...register('number')}
       />
 
       <Input
@@ -36,14 +49,17 @@ export function AddressForm() {
         type="text"
         placeholder="Complemento"
         label="Complemento"
+        {...register('complement')}
       />
 
       <Input
-        id="neighborhood"
+        id="district"
         type="text"
         placeholder="Bairro"
         label="Bairro"
+        error={errors.district?.message}
         required
+        {...register('district')}
       />
 
       <Input
@@ -51,10 +67,21 @@ export function AddressForm() {
         type="text"
         placeholder="Cidade"
         label="Cidade"
+        error={errors.city?.message}
         required
+        {...register('city')}
       />
 
-      <Input id="state" type="text" placeholder="UF" label="UF" required />
+      <Input
+        id="state"
+        type="text"
+        placeholder="UF"
+        label="UF"
+        maxLength={2}
+        error={errors.state?.message}
+        required
+        {...register('state')}
+      />
     </AddressFormContainer>
   )
 }

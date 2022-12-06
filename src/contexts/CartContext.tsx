@@ -12,6 +12,7 @@ interface CartContextData {
   deliveryFee: number
   itemsAmount: number
   addItemToCart: (itemToAdd: CartItem) => void
+  clearCart: () => void
   removeItemFromCart: (id: string) => void
   updateCartItem: (id: string, amount: number) => void
 }
@@ -54,6 +55,10 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     }
   }
 
+  function clearCart() {
+    setCartItems([])
+  }
+
   function removeItemFromCart(id: string) {
     const filteredCartItems = cartItems.filter((item) => item.id !== id)
     setCartItems(filteredCartItems)
@@ -78,6 +83,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         itemsAmount,
         deliveryFee,
         addItemToCart,
+        clearCart,
         removeItemFromCart,
         updateCartItem,
       }}

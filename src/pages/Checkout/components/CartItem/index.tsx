@@ -1,4 +1,3 @@
-import { useContext } from 'react'
 import { Trash } from 'phosphor-react'
 
 import {
@@ -8,9 +7,9 @@ import {
   InfoContainer,
   RemoveItemButton,
 } from './styles'
-import { CartContext } from '../../../../contexts/CartContext'
 import { Counter } from '../../../../components/Counter'
 import coffeesList from '../../../../data/coffees.json'
+import { useCart } from '../../../../hooks/useCart'
 
 interface CartItemProps {
   id: string
@@ -18,7 +17,7 @@ interface CartItemProps {
 }
 
 export function CartItem({ id, amount }: CartItemProps) {
-  const { removeItemFromCart, updateCartItem } = useContext(CartContext)
+  const { removeItemFromCart, updateCartItem } = useCart()
 
   const { image, title, price } = coffeesList.find(
     (coffee) => coffee.id === id,
