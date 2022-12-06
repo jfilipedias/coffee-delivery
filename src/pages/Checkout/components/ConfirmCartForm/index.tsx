@@ -9,6 +9,7 @@ import {
 } from './styles'
 import { CartItem } from '../CartItem'
 import { CartContext } from '../../../../contexts/CartContext'
+import coffeesList from '../../../../data/coffees.json'
 
 export function ConfirmCartForm() {
   const { cartItems } = useContext(CartContext)
@@ -18,11 +19,13 @@ export function ConfirmCartForm() {
     currency: 'BRL',
   })
 
-  const itemsPriceAmount = cartItems.reduce(
-    (accumulator, currentItem) =>
-      accumulator + currentItem.amount * currentItem.price,
-    0,
-  )
+  const itemsPriceAmount = cartItems.reduce((accumulator, currentItem) => {
+    const { price: currentItemPrice } = coffeesList.find(
+      (coffee) => coffee.id === currentItem.id,
+    )!
+
+    return accumulator + currentItem.amount * currentItemPrice
+  }, 0)
   const formattedItemsPriceAmount = priceFormatter.format(itemsPriceAmount)
 
   const deliveryFee = 5

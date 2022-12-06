@@ -51,7 +51,7 @@ export function CoffeeCard({
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    addItemToCart({ id, image, title, amount, price })
+    addItemToCart({ id, amount })
     setAmount(0)
   }
 

@@ -1,3 +1,4 @@
+import { useContext } from 'react'
 import { Trash } from 'phosphor-react'
 
 import {
@@ -7,23 +8,30 @@ import {
   InfoContainer,
   RemoveItemButton,
 } from './styles'
+import { CartContext } from '../../../../contexts/CartContext'
 import { Counter } from '../../../../components/Counter'
+import coffeesList from '../../../../data/coffees.json'
 
 interface CartItemProps {
   id: string
-  image: string
-  title: string
   amount: number
-  price: number
 }
 
-export function CartItem({ id, image, title, amount, price }: CartItemProps) {
+export function CartItem({ id, amount }: CartItemProps) {
+  const { removeItemFromCart } = useContext(CartContext)
+
+  const { image, title, price } = coffeesList.find(
+    (coffee) => coffee.id === id,
+  )!
+
   const formattedPrice = new Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL',
   }).format(price)
 
-  function handleRemoveItem() {}
+  function handleRemoveItem() {
+    removeItemFromCart(id)
+  }
 
   return (
     <CartItemContainer>
