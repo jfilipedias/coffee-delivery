@@ -13,6 +13,7 @@ interface CartContextData {
   itemsAmount: number
   addItemToCart: (itemToAdd: CartItem) => void
   removeItemFromCart: (id: string) => void
+  updateCartItem: (id: string, amount: number) => void
 }
 
 export const CartContext = createContext({} as CartContextData)
@@ -58,6 +59,18 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     setCartItems(filteredCartItems)
   }
 
+  function updateCartItem(id: string, amount: number) {
+    const updatedCartItems = cartItems.map((item) => {
+      if (item.id === id) {
+        return { ...item, amount }
+      }
+
+      return item
+    })
+
+    setCartItems(updatedCartItems)
+  }
+
   return (
     <CartContext.Provider
       value={{
@@ -66,6 +79,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         deliveryFee,
         addItemToCart,
         removeItemFromCart,
+        updateCartItem,
       }}
     >
       {children}

@@ -32,6 +32,10 @@ export const CounterContainer = styled.div`
     &:focus {
       box-shadow: none;
     }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
   }
 
   input {

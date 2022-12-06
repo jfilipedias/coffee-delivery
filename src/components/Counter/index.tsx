@@ -4,10 +4,11 @@ import { CounterContainer } from './styles'
 
 interface CounterProps {
   count: number
+  minAmount?: number
   onCountChange: (value: number) => void
 }
 
-export function Counter({ count, onCountChange }: CounterProps) {
+export function Counter({ count, onCountChange, minAmount = 0 }: CounterProps) {
   function handleDecrement() {
     if (count > 0) {
       onCountChange(count - 1)
@@ -23,7 +24,7 @@ export function Counter({ count, onCountChange }: CounterProps) {
       ? parseInt(event.target.value, 10)
       : 0
 
-    if (newCountValue >= 0) {
+    if (newCountValue >= minAmount) {
       onCountChange(newCountValue)
     }
   }

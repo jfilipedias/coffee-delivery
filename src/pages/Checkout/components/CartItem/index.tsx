@@ -18,7 +18,7 @@ interface CartItemProps {
 }
 
 export function CartItem({ id, amount }: CartItemProps) {
-  const { removeItemFromCart } = useContext(CartContext)
+  const { removeItemFromCart, updateCartItem } = useContext(CartContext)
 
   const { image, title, price } = coffeesList.find(
     (coffee) => coffee.id === id,
@@ -33,6 +33,10 @@ export function CartItem({ id, amount }: CartItemProps) {
     removeItemFromCart(id)
   }
 
+  function handleUpdateItem(amount: number) {
+    updateCartItem(id, amount)
+  }
+
   return (
     <CartItemContainer>
       <InfoContainer>
@@ -42,7 +46,11 @@ export function CartItem({ id, amount }: CartItemProps) {
           <span>{title}</span>
 
           <ActionsContainer>
-            <Counter count={amount} onCountChange={() => {}} />
+            <Counter
+              count={amount}
+              onCountChange={handleUpdateItem}
+              minAmount={1}
+            />
 
             <RemoveItemButton type="button" onClick={handleRemoveItem}>
               <Trash size={16} /> Remover
