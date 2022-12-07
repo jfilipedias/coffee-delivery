@@ -1,5 +1,6 @@
 import { InputHTMLAttributes } from 'react'
-import { InputContainer } from './Styles'
+import { ErrorMessage } from '../ErrorMessage'
+import { FieldContainer, InputContainer } from './Styles'
 
 type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   label?: string
@@ -15,10 +16,15 @@ export function Input({
   ...rest
 }: InputProps) {
   return (
-    <InputContainer className={className}>
-      {label && <label htmlFor={id}></label>}
-      <input id={id} required {...rest} />
-      {!required && <span>Opcional</span>}
-    </InputContainer>
+    <FieldContainer>
+      {label && <label htmlFor={id} hidden />}
+
+      <InputContainer className={className}>
+        <input id={id} required {...rest} />
+        {!required && <span>Opcional</span>}
+      </InputContainer>
+
+      {error && <ErrorMessage>{error}</ErrorMessage>}
+    </FieldContainer>
   )
 }
