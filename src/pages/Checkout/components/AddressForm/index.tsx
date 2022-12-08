@@ -19,7 +19,6 @@ export function AddressForm() {
         placeholder="CEP"
         label="CEP"
         error={errors.postalCode?.message}
-        required
         {...register('postalCode')}
       />
 
@@ -29,7 +28,6 @@ export function AddressForm() {
         type="text"
         placeholder="Rua"
         error={errors.street?.message}
-        required
         {...register('street')}
       />
 
@@ -39,7 +37,6 @@ export function AddressForm() {
         placeholder="Número"
         label="Número"
         error={errors.number?.message}
-        required
         {...register('number')}
       />
 
@@ -49,6 +46,7 @@ export function AddressForm() {
         type="text"
         placeholder="Complemento"
         label="Complemento"
+        isOptional
         {...register('complement')}
       />
 
@@ -58,7 +56,6 @@ export function AddressForm() {
         placeholder="Bairro"
         label="Bairro"
         error={errors.district?.message}
-        required
         {...register('district')}
       />
 
@@ -68,7 +65,6 @@ export function AddressForm() {
         placeholder="Cidade"
         label="Cidade"
         error={errors.city?.message}
-        required
         {...register('city')}
       />
 
@@ -79,7 +75,6 @@ export function AddressForm() {
         label="UF"
         maxLength={2}
         error={errors.state?.message}
-        required
         {...register('state')}
       />
     </AddressFormContainer>

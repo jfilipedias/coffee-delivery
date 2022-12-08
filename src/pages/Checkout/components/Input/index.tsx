@@ -1,30 +1,34 @@
-import { InputHTMLAttributes } from 'react'
-import { ErrorMessage } from '../ErrorMessage'
+import {
+  forwardRef,
+  ForwardRefRenderFunction,
+  InputHTMLAttributes,
+} from 'react'
+
 import { FieldContainer, InputContainer } from './Styles'
+import { ErrorMessage } from '../ErrorMessage'
 
 type InputProps = InputHTMLAttributes<HTMLInputElement> & {
+  isOptional?: boolean
   label?: string
   error?: string
 }
 
-export function Input({
-  id,
-  className,
-  label,
-  required,
-  error,
-  ...rest
-}: InputProps) {
+const InputBase: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
+  { id, className, isOptional, label, error, ...rest },
+  ref,
+) => {
   return (
-    <FieldContainer>
+    <FieldContainer className={className}>
       {label && <label htmlFor={id} hidden />}
 
-      <InputContainer className={className}>
-        <input id={id} required {...rest} />
-        {!required && <span>Opcional</span>}
+      <InputContainer>
+        <input id={id} ref={ref} {...rest} />
+        {isOptional && <span>Opcional</span>}
       </InputContainer>
 
       {error && <ErrorMessage>{error}</ErrorMessage>}
     </FieldContainer>
   )
 }
+
+export const Input = forwardRef(InputBase)
