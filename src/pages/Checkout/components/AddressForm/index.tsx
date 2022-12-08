@@ -4,12 +4,19 @@ import { AddressFormContainer } from './styles'
 import { Input } from '../Input'
 import { ConfirmOrderFormData } from '../..'
 
+function normalizePostalCode(value: string) {
+  const matchFiveDigitsRegex = /^(\d{0,5})$/
+
+  if (matchFiveDigitsRegex.test(value)) return value.replace(/\D/g, '')
+
+  return value.replace(/\D/g, '').replace(/^(\d{5})(\d{0,3})$/, '$1-$2')
+}
+
 export function AddressForm() {
   const {
     register,
     formState: { errors },
   } = useFormContext<ConfirmOrderFormData>()
-
   return (
     <AddressFormContainer>
       <Input
@@ -18,8 +25,12 @@ export function AddressForm() {
         type="text"
         placeholder="CEP"
         label="CEP"
+        maxLength={9}
         error={errors.postalCode?.message}
         {...register('postalCode')}
+        onChange={(event) => {
+          event.target.value = normalizePostalCode(event.target.value)
+        }}
       />
 
       <Input

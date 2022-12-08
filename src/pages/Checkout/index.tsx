@@ -22,7 +22,10 @@ enum PaymentMethods {
 }
 
 const confirmOrderFormValidationSchema = z.object({
-  postalCode: z.string().min(1, 'Informe o CEP'),
+  postalCode: z
+    .string()
+    .min(1, 'Informe o CEP')
+    .regex(/^(\d{5})-(\d{3})$/, 'Informe um CEP válido'),
   street: z.string().min(1, 'Informe a rua'),
   number: z.string().min(1, 'Informe o número'),
   complement: z.string(),
