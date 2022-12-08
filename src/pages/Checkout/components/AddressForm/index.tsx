@@ -7,7 +7,9 @@ import { ConfirmOrderFormData } from '../..'
 function normalizePostalCode(value: string) {
   const matchFiveDigitsRegex = /^(\d{0,5})$/
 
-  if (matchFiveDigitsRegex.test(value)) return value.replace(/\D/g, '')
+  if (matchFiveDigitsRegex.test(value)) {
+    return value.replace(/\D/g, '')
+  }
 
   return value.replace(/\D/g, '').replace(/^(\d{5})(\d{0,3})$/, '$1-$2')
 }
