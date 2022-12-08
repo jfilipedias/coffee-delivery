@@ -55,7 +55,9 @@ export function Checkout() {
   const { handleSubmit } = confirmOrderForm
 
   function handleCreateNewOrder(data: ConfirmOrderFormData) {
-    navigate('confirmed-order')
+    console.log({ data })
+
+    navigate('/pedido-confirmado')
     clearCart()
   }
 
