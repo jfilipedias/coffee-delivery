@@ -19,6 +19,7 @@ export function PaymentMethodForm() {
           id="credit"
           icon={<CreditCard size={16} />}
           label="Cartão de Crédito"
+          value="credit"
           {...register('paymentMethod')}
         />
 
@@ -26,6 +27,7 @@ export function PaymentMethodForm() {
           id="debit"
           icon={<Bank size={16} />}
           label="Cartão de Débito"
+          value="debit"
           {...register('paymentMethod')}
         />
 
@@ -33,6 +35,7 @@ export function PaymentMethodForm() {
           id="money"
           icon={<Money size={16} />}
           label="Dinheiro"
+          value="money"
           {...register('paymentMethod')}
         />
       </ButtonsContainer>

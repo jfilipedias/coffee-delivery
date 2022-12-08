@@ -15,10 +15,10 @@ type RadioButtonProps = InputHTMLAttributes<HTMLInputElement> & {
 const ButtonBase: ForwardRefRenderFunction<
   HTMLInputElement,
   RadioButtonProps
-> = ({ id, icon, label }, ref) => {
+> = ({ id, icon, label, ...rest }, ref) => {
   return (
     <RadioButtonContainer>
-      <input id={id} type="radio" name="paymentMethod" ref={ref} />
+      <input id={id} type="radio" ref={ref} {...rest} />
       <label htmlFor={id}>
         {icon}
         {label}
