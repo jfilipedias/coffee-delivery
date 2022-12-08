@@ -1,11 +1,23 @@
 import styled from 'styled-components'
 
-export const FieldContainer = styled.div``
+export const FieldContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+`
 
-export const InputContainer = styled.div`
+interface InputContainerProps {
+  hasError: boolean
+}
+
+export const InputContainer = styled.div<InputContainerProps>`
   position: relative;
   padding: 0.75rem;
-  border: 1px solid ${(props) => props.theme.colors['gray-400']};
+  border: 1px solid
+    ${(props) =>
+      props.hasError
+        ? props.theme.colors['red-200']
+        : props.theme.colors['gray-400']};
   border-radius: 4px;
   background: ${(props) => props.theme.colors['gray-300']};
   color: ${(props) => props.theme.colors['gray-700']};

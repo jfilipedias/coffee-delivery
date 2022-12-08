@@ -21,7 +21,7 @@ const InputBase: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
     <FieldContainer className={className}>
       {label && <label htmlFor={id} hidden />}
 
-      <InputContainer>
+      <InputContainer hasError={!!error}>
         <input id={id} ref={ref} {...rest} />
         {isOptional && <span>Opcional</span>}
       </InputContainer>
