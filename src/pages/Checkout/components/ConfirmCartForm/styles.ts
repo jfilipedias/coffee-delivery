@@ -43,7 +43,11 @@ export const ConfirmButton = styled.button`
   cursor: pointer;
   transition: 0.1s;
 
-  &:hover {
+  &:hover:not(:disabled) {
     background: ${(props) => props.theme.colors['yellow-700']};
+  }
+
+  &:disabled {
+    cursor: not-allowed;
   }
 `

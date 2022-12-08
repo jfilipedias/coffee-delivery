@@ -35,14 +35,23 @@ export function ConfirmCartForm() {
     itemsPriceAmount + deliveryFee,
   )
 
+  const hasItemsInCart = cartItems.length > 0
+
   return (
     <ConfirmCartFormContainer>
-      {cartItems.map((item) => (
-        <Fragment key={item.id}>
-          <CartItem {...item} />
+      {hasItemsInCart ? (
+        cartItems.map((item) => (
+          <Fragment key={item.id}>
+            <CartItem {...item} />
+            <Divider />
+          </Fragment>
+        ))
+      ) : (
+        <>
+          <span>Nenhum café selecionado</span>
           <Divider />
-        </Fragment>
-      ))}
+        </>
+      )}
 
       <TotalsContainer>
         <PriceTotalItem>
@@ -61,7 +70,9 @@ export function ConfirmCartForm() {
         </PriceTotalItem>
       </TotalsContainer>
 
-      <ConfirmButton type="submit">Confirmar pedido</ConfirmButton>
+      <ConfirmButton type="submit" disabled={!hasItemsInCart}>
+        Confirmar pedido
+      </ConfirmButton>
     </ConfirmCartFormContainer>
   )
 }
