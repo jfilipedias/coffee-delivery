@@ -14,7 +14,7 @@ export function Checkout() {
 
   return (
     <CheckoutContainer>
-      {isOrderConfirmed ? (
+      {!isOrderConfirmed ? (
         <ConfirmedOrder />
       ) : (
         <CheckoutForm onCheckout={updateCheckoutPage} />
