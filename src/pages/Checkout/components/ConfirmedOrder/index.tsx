@@ -1,4 +1,7 @@
 import { CurrencyDollar, MapPin, Timer } from 'phosphor-react'
+
+import { useOrder } from '../../../../hooks/useOrder'
+
 import {
   ConfirmedOrderContainer,
   Item,
@@ -7,7 +10,15 @@ import {
   ItemText,
 } from './styles'
 
+const paymentMethods = {
+  credit: 'Cartão de crédito',
+  debit: 'Cartão de débito',
+  money: 'Dinheiro',
+}
+
 export function ConfirmedOrder() {
+  const { lastOrder } = useOrder()
+
   return (
     <ConfirmedOrderContainer>
       <section>
@@ -20,11 +31,18 @@ export function ConfirmedOrder() {
             <ItemIcon>
               <MapPin weight="fill" />
             </ItemIcon>
+
             <ItemText>
               <span>
-                Entrega em <strong>{}</strong>
+                Entrega em{' '}
+                <strong>
+                  {lastOrder?.street}, {lastOrder?.number}
+                </strong>
               </span>
-              <span>{}</span>
+
+              <span>
+                {lastOrder?.city} - {lastOrder?.state}
+              </span>
             </ItemText>
           </Item>
 
@@ -32,6 +50,7 @@ export function ConfirmedOrder() {
             <ItemIcon>
               <Timer weight="fill" />
             </ItemIcon>
+
             <ItemText>
               <span>Previsão de entrega</span>
               <strong>20 min - 30 min</strong>
@@ -42,9 +61,10 @@ export function ConfirmedOrder() {
             <ItemIcon>
               <CurrencyDollar />
             </ItemIcon>
+
             <ItemText>
               <span>Pagamento na entrega</span>
-              <strong>{}</strong>
+              <strong>{paymentMethods[lastOrder?.paymentMethod!]}</strong>
             </ItemText>
           </Item>
         </ItemsContainer>

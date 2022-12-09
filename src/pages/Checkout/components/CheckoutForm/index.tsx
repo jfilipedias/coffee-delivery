@@ -12,7 +12,9 @@ import { FormStep } from '../FormStep'
 import { PaymentMethodForm } from '../PaymentMethodForm'
 import { StepSection } from '../StepSection'
 import { StepSectionHeader } from '../StepSectionHeader'
+import coffeesList from '../../../../data/coffees.json'
 import { useCart } from '../../../../hooks/useCart'
+import { useOrder } from '../../../../hooks/useOrder'
 
 enum PaymentMethods {
   credit = 'credit',
@@ -26,7 +28,7 @@ const checkoutFormValidationSchema = z.object({
     .min(1, 'Informe o CEP')
     .regex(/^(\d{5})-(\d{3})$/, 'Informe um CEP válido'),
   street: z.string().min(1, 'Informe a rua'),
-  number: z.string().min(1, 'Informe o número'),
+  number: z.number().min(1, 'Informe o número'),
   complement: z.string(),
   district: z.string().min(1, 'Informe o bairro'),
   city: z.string().min(1, 'Informe a cidade'),
@@ -46,7 +48,8 @@ interface CheckoutFormProps {
 
 export function CheckoutForm({ onCheckout }: CheckoutFormProps) {
   const { colors } = useTheme()
-  const { clearCart } = useCart()
+  const { cartItems, clearCart } = useCart()
+  const { saveOrder } = useOrder()
 
   const checkoutForm = useForm<CheckoutFormData>({
     resolver: zodResolver(checkoutFormValidationSchema),
@@ -58,10 +61,30 @@ export function CheckoutForm({ onCheckout }: CheckoutFormProps) {
   const { handleSubmit } = checkoutForm
 
   function handleCheckout(data: CheckoutFormData) {
-    console.log({ data })
+    const { street, number, city, state, paymentMethod } = data
 
-    onCheckout()
+    const itemsPriceAmount = cartItems.reduce((accumulator, currentItem) => {
+      const { price: currentItemPrice } = coffeesList.find(
+        (coffee) => coffee.id === currentItem.id,
+      )!
+
+      return accumulator + currentItem.amount * currentItemPrice
+    }, 0)
+
+    const order = {
+      street,
+      number,
+      city,
+      state,
+      paymentMethod,
+      itemsPriceAmount,
+      deliveryFee: 5,
+      items: cartItems,
+    }
+
+    saveOrder(order)
     clearCart()
+    onCheckout()
   }
 
   return (

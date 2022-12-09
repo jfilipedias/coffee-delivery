@@ -79,7 +79,7 @@ export function AddressForm() {
         placeholder="Número"
         label="Número"
         error={errors.number?.message}
-        {...register('number')}
+        {...register('number', { valueAsNumber: true })}
       />
 
       <Input
