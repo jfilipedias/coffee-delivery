@@ -1,38 +1,67 @@
+import { ChangeEvent } from 'react'
 import { useFormContext } from 'react-hook-form'
 
 import { AddressFormContainer } from './styles'
 import { Input } from '../Input'
 import { ConfirmOrderFormData } from '../..'
 
-function normalizePostalCode(value: string) {
-  const matchFiveDigitsRegex = /^(\d{0,5})$/
+function formatNumericZipCode(zipCode: string) {
+  return zipCode.replace(/\D/g, '')
+}
 
-  if (matchFiveDigitsRegex.test(value)) {
-    return value.replace(/\D/g, '')
+function maskZipCode(zipCode: string) {
+  const hasMaxFiveDigitsRegex = /^(\d{0,5})$/
+  const numericZipCode = formatNumericZipCode(zipCode)
+
+  if (hasMaxFiveDigitsRegex.test(numericZipCode)) {
+    return numericZipCode
   }
 
-  return value.replace(/\D/g, '').replace(/^(\d{5})(\d{0,3})$/, '$1-$2')
+  return numericZipCode.replace(/^(\d{5})(\d{0,3})$/, '$1-$2')
 }
 
 export function AddressForm() {
   const {
     register,
     formState: { errors },
+    setValue,
   } = useFormContext<ConfirmOrderFormData>()
+
+  function fillAddressForm(zipCode: string) {
+    fetch(`http://viacep.com.br/ws/${zipCode}/json/`)
+      .then((response) => response.json())
+      .then((data) => {
+        setValue('street', data?.logradouro)
+        setValue('district', data?.bairro)
+        setValue('city', data?.localidade)
+        setValue('state', data?.uf)
+      })
+  }
+
+  function handleZipCodeChange(event: ChangeEvent<HTMLInputElement>) {
+    const zipCode = event.target.value
+
+    const maskedZipCode = maskZipCode(zipCode)
+    event.target.value = maskedZipCode
+
+    const numericZipCode = formatNumericZipCode(zipCode)
+    if (numericZipCode.length === 8) {
+      fillAddressForm(zipCode)
+    }
+  }
+
   return (
     <AddressFormContainer>
       <Input
-        id="postalCode"
-        className="grid-col-span-3 postal-code"
+        id="zipCode"
+        className="grid-col-span-3 zip-code"
         type="text"
         placeholder="CEP"
         label="CEP"
         maxLength={9}
-        error={errors.postalCode?.message}
-        {...register('postalCode')}
-        onChange={(event) => {
-          event.target.value = normalizePostalCode(event.target.value)
-        }}
+        error={errors.zipCode?.message}
+        {...register('zipCode')}
+        onChange={handleZipCodeChange}
       />
 
       <Input

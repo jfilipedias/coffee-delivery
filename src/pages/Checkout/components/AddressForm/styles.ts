@@ -6,7 +6,7 @@ export const AddressFormContainer = styled.div`
   grid-column-gap: 0.75rem;
   grid-row-gap: 1rem;
 
-  .postal-code {
+  .zip-code {
     max-width: 12.5rem;
   }
 
