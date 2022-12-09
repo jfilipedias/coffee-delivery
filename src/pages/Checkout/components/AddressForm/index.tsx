@@ -3,7 +3,7 @@ import { useFormContext } from 'react-hook-form'
 
 import { AddressFormContainer } from './styles'
 import { Input } from '../Input'
-import { ConfirmOrderFormData } from '../..'
+import { CheckoutFormData } from '../CheckoutForm'
 
 function formatNumericZipCode(zipCode: string) {
   return zipCode.replace(/\D/g, '')
@@ -25,7 +25,7 @@ export function AddressForm() {
     register,
     formState: { errors },
     setValue,
-  } = useFormContext<ConfirmOrderFormData>()
+  } = useFormContext<CheckoutFormData>()
 
   function fillAddressForm(zipCode: string) {
     fetch(`http://viacep.com.br/ws/${zipCode}/json/`)

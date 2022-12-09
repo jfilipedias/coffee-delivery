@@ -4,13 +4,13 @@ import { useFormContext } from 'react-hook-form'
 import { ButtonsContainer, PaymentFormContainer } from './styles'
 import { ErrorMessage } from '../ErrorMessage'
 import { PaymentMethodButton } from '../PaymentMethodButton'
-import { ConfirmOrderFormData } from '../..'
+import { CheckoutFormData } from '../CheckoutForm'
 
 export function PaymentMethodForm() {
   const {
     register,
     formState: { errors },
-  } = useFormContext<ConfirmOrderFormData>()
+  } = useFormContext<CheckoutFormData>()
 
   return (
     <PaymentFormContainer>

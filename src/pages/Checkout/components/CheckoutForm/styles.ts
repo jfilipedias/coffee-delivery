@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 
-export const CheckoutContainer = styled.main`
+export const FormContainer = styled.form`
   display: flex;
-  align-items: center;
   justify-content: center;
+  gap: 2rem;
+  margin: 2.5rem auto;
   width: 100%;
-  height: 100%;
+  max-width: 90rem;
 `
