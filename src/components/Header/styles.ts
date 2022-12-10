@@ -1,18 +1,26 @@
 import styled from 'styled-components'
 
 export const HeaderContainer = styled.div`
-  display: flex;
   align-items: center;
   justify-content: space-between;
   max-width: 90rem;
   margin: auto;
-  padding: 2rem 10rem;
+  top: 50%;
+  padding: 2rem 3.5rem;
 
   nav {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.75rem;
+  }
+
+  @media (min-width: ${(props) => props.theme.screen.lg}) {
+    padding: 2rem 6rem;
+  }
+
+  @media (min-width: ${(props) => props.theme.screen.xl}) {
+    padding: 2rem 10rem;
   }
 `
 

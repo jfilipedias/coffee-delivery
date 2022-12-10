@@ -24,4 +24,10 @@ export const defaultTheme = {
     'red-200': '#FA9891',
     'red-500': '#E33327',
   },
+  screen: {
+    sm: '640px',
+    md: '768px',
+    lg: '1024px',
+    xl: '1280px',
+  },
 }
