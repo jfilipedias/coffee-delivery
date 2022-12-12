@@ -47,9 +47,9 @@ interface CheckoutFormProps {
 }
 
 export function CheckoutForm({ onCheckout }: CheckoutFormProps) {
-  const { colors } = useTheme()
   const { cartItems, clearCart } = useCart()
   const { saveOrder } = useOrder()
+  const { colors, screen } = useTheme()
 
   const checkoutForm = useForm<CheckoutFormData>({
     resolver: zodResolver(checkoutFormValidationSchema),
@@ -90,7 +90,7 @@ export function CheckoutForm({ onCheckout }: CheckoutFormProps) {
   return (
     <FormProvider {...checkoutForm}>
       <FormContainer onSubmit={handleSubmit(handleCheckout)}>
-        <FormStep title="Complete seu pedido" style={{ width: '40rem' }}>
+        <FormStep title="Complete seu pedido" className="lg">
           <StepSection>
             <StepSectionHeader
               icon={<MapPinLine size={22} color={colors['yellow-500']} />}
@@ -112,7 +112,7 @@ export function CheckoutForm({ onCheckout }: CheckoutFormProps) {
           </StepSection>
         </FormStep>
 
-        <FormStep title="Cafés selecionados" style={{ width: '28rem' }}>
+        <FormStep title="Cafés selecionados" className="md">
           <StepSection style={{ borderRadius: '6px 44px' }}>
             <ConfirmCartForm />
           </StepSection>

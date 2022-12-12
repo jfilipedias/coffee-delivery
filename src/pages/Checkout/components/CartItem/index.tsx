@@ -38,27 +38,27 @@ export function CartItem({ id, amount }: CartItemProps) {
 
   return (
     <CartItemContainer>
-      <InfoContainer>
-        <img src={image} alt="" />
+      <img src={image} alt="" />
 
+      <InfoContainer>
         <DetailsContainer>
           <span>{title}</span>
 
-          <ActionsContainer>
-            <Counter
-              count={amount}
-              onCountChange={handleUpdateItem}
-              minAmount={1}
-            />
-
-            <RemoveItemButton type="button" onClick={handleRemoveItem}>
-              <Trash size={16} /> Remover
-            </RemoveItemButton>
-          </ActionsContainer>
+          <strong>{formattedPrice}</strong>
         </DetailsContainer>
-      </InfoContainer>
 
-      <strong>{formattedPrice}</strong>
+        <ActionsContainer>
+          <Counter
+            count={amount}
+            onCountChange={handleUpdateItem}
+            minAmount={1}
+          />
+
+          <RemoveItemButton type="button" onClick={handleRemoveItem}>
+            <Trash size={16} /> Remover
+          </RemoveItemButton>
+        </ActionsContainer>
+      </InfoContainer>
     </CartItemContainer>
   )
 }

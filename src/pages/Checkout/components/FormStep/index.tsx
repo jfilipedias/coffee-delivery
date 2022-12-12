@@ -5,13 +5,14 @@ import { FormStepContainer } from './styles'
 
 interface FormStepProps {
   title: string
-  style: CSSProperties
+  className?: string
+  style?: CSSProperties
   children: ReactNode
 }
 
-export function FormStep({ title, style, children }: FormStepProps) {
+export function FormStep({ title, style, className, children }: FormStepProps) {
   return (
-    <FormStepContainer style={style}>
+    <FormStepContainer style={style} className={className}>
       <h2>{title}</h2>
 
       {children}

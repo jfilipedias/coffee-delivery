@@ -2,13 +2,8 @@ import styled from 'styled-components'
 
 export const CartItemContainer = styled.div`
   display: flex;
-  justify-content: space-between;
-  width: 100%;
-`
-
-export const InfoContainer = styled.div`
-  display: flex;
   gap: 1.25rem;
+  width: 100%;
 
   img {
     width: 4rem;
@@ -16,10 +11,18 @@ export const InfoContainer = styled.div`
   }
 `
 
-export const DetailsContainer = styled.div`
+export const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+`
+
+export const DetailsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
   gap: 0.5rem;
+  width: 100%;
 
   span {
     color: ${(props) => props.theme.colors['gray-800']};
