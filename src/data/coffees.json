@@ -1,7 +1,7 @@
 [
   {
     "id": "0ff5045b-c030-460c-b666-a058040a73fd", 
-    "image": "/coffees/expresso.png",
+    "image": "/coffee-delivery/coffees/expresso.png",
     "tags": ["tradicional"],
     "title": "Expresso Tradicional",
     "description": "O tradicional café feito com água quente e grãos moídos",
@@ -9,7 +9,7 @@
   },
   {
     "id": "91c8f222-ccf5-4f4d-bf74-d80f6cd4b3be",
-    "image": "/coffees/americano.png",
+    "image": "/coffee-delivery/coffees/americano.png",
     "tags": ["tradicional"],
     "title": "Expresso Americano",
     "description": "Expresso diluído, menos intenso que o tradicional",
@@ -17,7 +17,7 @@
   },
   {
     "id": "56197888-e23e-4279-98d7-aa576c3af9fe",
-    "image": "/coffees/expresso-cremoso.png",
+    "image": "/coffee-delivery/coffees/expresso-cremoso.png",
     "tags": ["tradicional"],
     "title": "Expresso Cremoso",
     "description": "Café expresso tradicional com espuma cremosa",
@@ -25,7 +25,7 @@
   },
   {
     "id": "35569268-ec1c-410a-9548-d9a839a33234",
-    "image": "/coffees/cafe-gelado.png",
+    "image": "/coffee-delivery/coffees/cafe-gelado.png",
     "tags": ["tradicional", "gelado"],
     "title": "Expresso Gelado",
     "description": "Bebida preparada com café expresso e cubos de gelo",
@@ -33,7 +33,7 @@
   },
   {
     "id": "3d4ae666-b00b-4018-9b01-5aac006394d5",
-    "image": "/coffees/cafe-com-leite.png",
+    "image": "/coffee-delivery/coffees/cafe-com-leite.png",
     "tags": ["tradicional", "com leite"],
     "title": "Café com Leite",
     "description": "Meio a meio de expresso tradicional com leite vaporizado",
@@ -41,7 +41,7 @@
   },
   {
     "id": "325f8d61-0a1f-4f6f-b652-45a4747eb535",
-    "image": "/coffees/latte.png",
+    "image": "/coffee-delivery/coffees/latte.png",
     "tags": ["tradicional", "com leite"],
     "title": "Latte",
     "description": "Uma dose de café expresso com o dobro de leite e espuma cremosa",
@@ -49,7 +49,7 @@
   },
   {
     "id": "4ff9ecd4-f512-422f-9abb-3c79fb8b2c7b",
-    "image": "/coffees/cappuccino.png",
+    "image": "/coffee-delivery/coffees/cappuccino.png",
     "tags": ["tradicional", "com leite"],
     "title": "Cappuccino",
     "description": "Bebida com canela feita de doses iguais de café, leite e espuma",
@@ -57,7 +57,7 @@
   },
   {
     "id": "4b77a0e0-4823-4f1e-8454-4f69601b181e",
-    "image": "/coffees/macchiato.png",
+    "image": "/coffee-delivery/coffees/macchiato.png",
     "tags": ["tradicional", "com leite"],
     "title": "Macchiato",
     "description": "Café expresso misturado com um pouco de leite quente e espuma",
@@ -65,7 +65,7 @@
   },
   {
     "id": "22cfb347-fdfd-40fd-bbd7-6642c80acefd",
-    "image": "/coffees/mocaccino.png",
+    "image": "/coffee-delivery/coffees/mocaccino.png",
     "tags": ["tradicional", "com leite"],
     "title": "Mocaccino",
     "description": "Café expresso com calda de chocolate, pouco leite e espuma",
@@ -73,7 +73,7 @@
   },
   {
     "id": "40448086-171c-4e10-b392-457ac661e999",
-    "image": "/coffees/chocolate-quente.png",
+    "image": "/coffee-delivery/coffees/chocolate-quente.png",
     "tags": ["especial", "com leite"],
     "title": "Chocolate Quente",
     "description": "Bebida feita com chocolate dissolvido no leite quente e café",
@@ -81,7 +81,7 @@
   },
   {
     "id": "1c5fe7c3-a4a7-41d0-9593-f9128f80dcfa",
-    "image": "/coffees/cubano.png",
+    "image": "/coffee-delivery/coffees/cubano.png",
     "tags": ["especial", "alcoólico", "com leite"],
     "title": "Cubano",
     "description": "Drink gelado de café expresso com rum, creme de leite e hortelã",
@@ -89,7 +89,7 @@
   },
   {
     "id": "fc4dff84-67b1-403f-919b-2074e2011557",
-    "image": "/coffees/havaiano.png",
+    "image": "/coffee-delivery/coffees/havaiano.png",
     "tags": ["especial"],
     "title": "Havaiano",
     "description": "Bebida adocicada preparada com café e leite de coco",
@@ -97,7 +97,7 @@
   },
   {
     "id": "3f95e7e0-3798-410d-839a-1bde85b4e187",
-    "image": "/coffees/arabe.png",
+    "image": "/coffee-delivery/coffees/arabe.png",
     "tags": ["especial"],
     "title": "Árabe",
     "description": "Bebida preparada com grãos de café árabe e especiarias",
@@ -105,7 +105,7 @@
   },
   {
     "id": "c47b1e4e-a734-40bf-850f-c06f9940a48e",
-    "image": "/coffees/irlandes.png",
+    "image": "/coffee-delivery/coffees/irlandes.png",
     "tags": ["especial", "alcoólico"],
     "title": "Irlandês",
     "description": "Bebida a base de café, uísque irlandês, açúcar e chantilly",
