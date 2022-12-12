@@ -2,14 +2,45 @@ import styled from 'styled-components'
 
 export const ConfirmedOrderContainer = styled.div`
   display: flex;
-  margin-top: 5rem;
-  gap: 6.5rem;
+  flex-direction: column;
+  margin-top: 3rem;
+  gap: 2rem;
+  width: 100%;
+  max-width: 70rem;
+  padding: 0 3.5rem 6rem;
 
-  h2 {
-    font-family: 'Baloo 2', sans-serif;
-    font-weight: 800;
-    font-size: 2rem;
-    color: ${(props) => props.theme.colors['yellow-700']};
+  img {
+    width: 100%;
+  }
+
+  @media (min-width: ${(props) => props.theme.screen.lg}) {
+    margin-top: 5rem;
+    padding: 0 6rem 6rem;
+    flex-direction: row;
+
+    img {
+      width: 400px;
+    }
+  }
+
+  @media (min-width: ${(props) => props.theme.screen.xl}) {
+    padding: 0;
+    gap: 6.5rem;
+
+    img {
+      width: 492px;
+    }
+  }
+
+  section {
+    width: 100%;
+
+    h2 {
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 800;
+      font-size: 2rem;
+      color: ${(props) => props.theme.colors['yellow-700']};
+    }
   }
 `
 
