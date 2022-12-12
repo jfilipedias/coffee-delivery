@@ -6,6 +6,7 @@ interface FilterContainerProps {
 
 export const FilterContainer = styled.button<FilterContainerProps>`
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   padding: 0.375rem 0.75rem;
   border: 1px solid ${(props) => props.theme.colors['yellow-500']};

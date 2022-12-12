@@ -22,11 +22,12 @@ export const CoffeeSectionContainer = styled.div`
 export const CoffeeSectionHeader = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 0.5rem;
   width: 100%;
 
   @media (min-width: ${(props) => props.theme.screen.md}) {
     align-items: center;
+    justify-content: space-between;
     flex-direction: row;
   }
 
@@ -42,6 +43,28 @@ export const FiltersContainer = styled.ul`
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  padding: 8px 4px;
+  overflow-x: scroll;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: ${(props) => props.theme.colors['gray-400']};
+    border-radius: 3px;
+  }
+
+  @media (min-width: ${(props) => props.theme.screen.md}) {
+    overflow: visible;
+    padding-bottom: 0;
+  }
 
   li {
     list-style: none;

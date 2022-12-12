@@ -11,7 +11,7 @@ export const HomeContainer = styled.div`
 export const HeroSection = styled.section`
   position: relative;
   width: 100%;
-  height: 52rem;
+  height: 56rem;
 
   @media (min-width: ${(props) => props.theme.screen.md}) {
     height: 48rem;
@@ -27,7 +27,7 @@ export const HeroSection = styled.section`
     flex-direction: column;
     align-items: center;
     position: absolute;
-    transform: translate(0, -90%);
+    transform: translate(0, -94%);
     gap: 3.5rem;
     width: 100%;
     max-width: 90rem;
@@ -45,7 +45,8 @@ export const HeroSection = styled.section`
       flex-direction: row;
       gap: 3.5rem;
       top: 50%;
-      transform: translate(0, -50%);
+      left: 50%;
+      transform: translate(-50%, -50%);
       padding: 5.75rem 6rem;
     }
 
